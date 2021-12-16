@@ -9,6 +9,10 @@ import pick from 'lib/pick'
 import Layout from 'components/layout'
 
 const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const sorted = posts.sort((post1, post2) =>
+    post1.date > post2.date ? -1 : 1
+  )
+
   return (
     <Layout>
       <Head>
@@ -21,7 +25,7 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           </p>
         </div>
         <div className="flex flex-col w-full max-w-2xl items-start justify-center mt-16">
-          {posts.map((post) => {
+          {sorted.map((post) => {
             const date = parseISO(post.date)
 
             return (
