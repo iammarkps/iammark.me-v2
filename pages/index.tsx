@@ -5,7 +5,7 @@ import { format, formatDistanceToNow, parseISO } from 'date-fns'
 
 import { allPosts } from '.contentlayer/data'
 
-import pick from 'lib/pick'
+import { pick } from 'lib/utils'
 import Layout from 'components/layout'
 
 const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
