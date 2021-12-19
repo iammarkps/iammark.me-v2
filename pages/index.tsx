@@ -14,7 +14,7 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   )
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>iammark | Blog</title>
       </Head>
@@ -47,8 +47,12 @@ const Index = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           })}
         </div>
       </div>
-    </Layout>
+    </>
   )
+}
+
+Index.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>
 }
 
 export default Index
