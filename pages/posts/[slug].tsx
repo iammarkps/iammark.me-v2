@@ -13,6 +13,8 @@ import type { Post as PostType } from '.contentlayer/types'
 import { SITE_URL } from 'lib/constants'
 import Layout from 'components/layout'
 
+import profilePic from 'public/assets/blog/authors/iammarkps.jpg'
+
 const Post = ({ post }: { post: PostType }) => {
   const MDXContent = useMDXComponent(post.body.code)
 
@@ -47,10 +49,11 @@ const Post = ({ post }: { post: PostType }) => {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full font-display">
             <div className="flex items-center">
               <Image
-                src="/assets/blog/authors/iammarkps.jpg"
+                src={profilePic}
                 width={48}
                 height={48}
                 alt="avatar"
+                placeholder="blur"
               ></Image>
               <p className="ml-2">iammarkps</p>
             </div>
