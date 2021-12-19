@@ -54,7 +54,7 @@ const Post = ({ post }: { post: Post }) => {
               {formatDistanceToNow(date, { addSuffix: true })})
             </p>
           </div>
-          <div className="w-full mt-4 prose">
+          <div className="w-full mt-4 prose max-w-none">
             <MDXContent components={components} />
           </div>
         </article>
