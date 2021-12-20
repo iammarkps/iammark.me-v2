@@ -13,127 +13,162 @@ html {
   min-height: 100vh;
 }
 
-/**
- * Based on copypasta from Remy Bach and Sarah Drasner
- */
-code[class*='language-'],
-pre[class*='language-'] {
-  color: white;
-  background: #011627;
-  font-family: Fira Code, Menlo, Monaco, source-code-pro, Courier New, monospace;
-  font-variant-ligatures: none;
+// From https://github.com/GalenWong/nord-prism-js/blob/9f085d2a64b37f72a516540ba3f87877d12d7e2d/prism-nord.css
+pre[class*='language-'],
+code[class*='language-'] {
+  color: #d8dee9;
   font-size: 1em;
-  font-feature-settings: normal;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  word-wrap: normal;
   line-height: 1.5;
-  margin-bottom: 0;
-
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
-
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
 }
 
-/* Code blocks */
+pre[class*='language-']::selection,
+code[class*='language-']::selection,
+pre[class*='language-']::mozselection,
+code[class*='language-']::mozselection {
+  text-shadow: none;
+  background: none;
+}
+
+@media print {
+  pre[class*='language-'],
+  code[class*='language-'] {
+    text-shadow: none;
+  }
+}
+
 pre[class*='language-'] {
-  overflow: auto;
+  padding: 1em;
   margin: 0.5em 0;
-  padding: 1.3125rem;
+  overflow: auto;
+  background: #2e3440;
   font-size: 14px;
 }
 
-pre[class*='language-']::-moz-selection {
-  /* Firefox */
-  background: hsl(207, 4%, 16%);
+.namespace {
+  opacity: 0.7;
 }
-
-pre[class*='language-']::selection {
-  /* Safari */
-  background: hsl(207, 4%, 16%);
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #606e87;
 }
-
-/* Text Selection colour */
-pre[class*='language-']::-moz-selection,
-pre[class*='language-'] ::-moz-selection {
-  text-shadow: none;
-  background: hsla(0, 0%, 100%, 0.15);
+.token.punctuation {
+  color: #81a1c1;
 }
-
-pre[class*='language-']::selection,
-pre[class*='language-'] ::selection {
-  text-shadow: none;
-  background: hsla(0, 0%, 100%, 0.15);
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #b48ead;
 }
-
-.token.plain {
-  color: white;
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a2bf8c;
 }
-
-.token.attr-name {
-  color: rgb(173, 219, 103);
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #80a2c1;
+  background: none;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #81a1c1;
+}
+.token.function {
+  color: #8fbcbc;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ee9900;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
   font-style: italic;
 }
-
-.token.comment {
-  color: rgb(128, 147, 147);
+.token.entity {
+  cursor: help;
 }
 
-.token.variable {
-  color: rgb(214, 222, 235);
+/**
+ * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .code-highlight.
+ */
+.code-highlight {
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
 }
 
-.token.number {
-  color: rgb(247, 140, 108);
+.code-line {
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left-width: 4px;
+  border-left-color: rgba(31, 41, 55, 0); /* Set code block color */
 }
 
-.token.builtin,
-.token.char,
-.token.constant,
-.token.function {
-  color: rgb(130, 170, 255);
+.code-line.inserted {
+  background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
 }
 
-.token.punctuation {
-  color: rgb(199, 146, 234);
+.code-line.deleted {
+  background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
 }
 
-.token.selector,
-.token.doctype {
-  color: rgb(199, 146, 234);
-  font-style: 'italic';
+pre[data-line] {
+  position: relative;
+}
+pre[class*='language-'] > code[class*='language-'] {
+  position: relative;
+  z-index: 1;
 }
 
-.token.class-name {
-  color: rgb(255, 203, 139);
+.highlight-line {
+  margin-left: -16px;
+  margin-right: -16px;
+  background-color: #3b4251; /* Set highlight bg color */
+  border-left-width: 4px;
+  border-left-color: #d8dee9; /* Set highlight accent border color */
 }
 
-.token.property {
-  color: rgb(128, 203, 196);
-}
-
-.token.tag,
-.token.operator,
-.token.keyword {
-  color: #ffa7c4;
-}
-
-.token.boolean {
-  color: rgb(255, 88, 116);
-}
-
-.token.namespace {
-  color: rgb(178, 204, 214);
-}
-
-.token.string,
-.token.url {
-  color: rgb(173, 219, 103);
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: rgb(156, 163, 175); /* Line number color */
+  content: attr(line);
 }
