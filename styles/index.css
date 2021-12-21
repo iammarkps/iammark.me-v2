@@ -13,7 +13,7 @@ html {
   min-height: 100vh;
 }
 
-// From https://github.com/GalenWong/nord-prism-js/blob/9f085d2a64b37f72a516540ba3f87877d12d7e2d/prism-nord.css
+/* From https://github.com/GalenWong/nord-prism-js/blob/9f085d2a64b37f72a516540ba3f87877d12d7e2d/prism-nord.css */
 pre[class*='language-'],
 code[class*='language-'] {
   color: #d8dee9;
