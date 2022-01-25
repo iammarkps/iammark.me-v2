@@ -41,12 +41,12 @@ const Post = ({ post }: { post: PostType }) => {
           crossOrigin="anonymous"
         />
       </Head>
-      <div className="flex flex-col justify-center mx-auto w-full">
-        <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-32">
-          <h1 className="mb-4 text-3xl font-bold font-display text-black md:text-5x">
+      <div className="mx-auto flex w-full flex-col justify-center">
+        <article className="mx-auto mb-32 flex w-full max-w-2xl flex-col items-start justify-center">
+          <h1 className="mb-4 font-display text-3xl font-bold text-black md:text-5xl">
             {post.title}
           </h1>
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between w-full font-display">
+          <div className="flex w-full flex-col items-start justify-between font-display md:flex-row md:items-center">
             <div className="flex items-center">
               <Image
                 src={profilePic}
@@ -63,7 +63,7 @@ const Post = ({ post }: { post: PostType }) => {
               {formatDistanceToNow(date, { addSuffix: true })})
             </p>
           </div>
-          <div className="w-full mt-4 prose max-w-none">
+          <div className="prose mt-4 w-full max-w-none">
             <MDXContent components={components} />
           </div>
         </article>
