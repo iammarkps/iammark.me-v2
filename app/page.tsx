@@ -4,7 +4,7 @@ import { compareDesc, format, formatDistanceToNow, parseISO } from 'date-fns'
 
 import { allPosts } from 'contentlayer/generated'
 
-const Index = () => {
+export default () => {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   )
@@ -17,7 +17,7 @@ const Index = () => {
         </p>
       </div>
       <div className="mt-16 flex w-full max-w-2xl flex-col items-start justify-center">
-        {posts.map((post) => {
+        {posts.map(post => {
           const date = parseISO(post.date)
 
           return (
@@ -44,8 +44,6 @@ const Index = () => {
   )
 }
 
-export default Index
-
 export const metadata: Metadata = {
-  title: 'iammark | Blog',
+  title: 'iammark | Blog'
 }
