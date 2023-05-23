@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@vercel/analytics": "^1.0.1",
     "classnames": "^2.3.2",
     "concurrently": "^8.0.1",
     "contentlayer": "^0.3.2",

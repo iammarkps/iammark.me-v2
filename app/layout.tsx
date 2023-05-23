@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Analytics } from '@vercel/analytics/react'
 import { Inter, IBM_Plex_Sans_Thai } from 'next/font/google'
 
 import 'styles/index.css'
@@ -38,6 +39,7 @@ export default function RootLayout({
           </div>
           <main className="flex flex-col justify-center px-8">{children}</main>
         </div>
+        <Analytics />
       </body>
     </html>
   )
