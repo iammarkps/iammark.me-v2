@@ -2,12 +2,12 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { compareDesc, format, formatDistanceToNow, parseISO } from 'date-fns'
 
-// import { allPosts } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 
 const Index = () => {
-  // const posts = allPosts.sort((a, b) =>
-  //   compareDesc(new Date(a.date), new Date(b.date))
-  // )
+  const posts = allPosts.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date))
+  )
 
   return (
     <div className="mx-auto mb-16 flex w-full max-w-2xl flex-1 flex-col items-start justify-center">
@@ -17,7 +17,7 @@ const Index = () => {
         </p>
       </div>
       <div className="mt-16 flex w-full max-w-2xl flex-col items-start justify-center">
-        {/* {posts.map((post) => {
+        {posts.map((post) => {
           const date = parseISO(post.date)
 
           return (
@@ -38,7 +38,7 @@ const Index = () => {
               </div>
             </Link>
           )
-        })} */}
+        })}
       </div>
     </div>
   )
