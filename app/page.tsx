@@ -1,8 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { compareDesc, format, formatDistanceToNow, parseISO } from 'date-fns'
-
 import { allPosts } from 'contentlayer/generated'
+import { compareDesc, format, formatDistanceToNow, parseISO } from 'date-fns'
 
 export default function Index() {
   const posts = allPosts.sort((a, b) =>

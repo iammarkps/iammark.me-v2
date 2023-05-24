@@ -20,13 +20,18 @@
     "turbo": "next dev --turbo",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "preview": "next build && next start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
+    "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "4.0.0-beta.0",
     "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^17.0.59",
     "autoprefixer": "^10.4.14",
+    "eslint-config-prettier": "^8.8.0",
     "husky": "^8.0.0",
     "postcss": "^8.4.23",
     "prettier": "2.8.8",

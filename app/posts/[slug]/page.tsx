@@ -1,16 +1,14 @@
-import { Mdx } from 'components/MDXComponents'
-import { notFound } from 'next/navigation'
-
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
+import { Mdx } from 'components/MDXComponents'
+
 import './katex.css'
 
-import { parseISO, format, formatDistanceToNow } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
-
-import { SITE_URL } from 'lib/constants'
-
-import profilePic from 'public/assets/blog/authors/iammarkps.jpg'
 import { Metadata } from 'next'
+import { allPosts } from 'contentlayer/generated'
+import { format, formatDistanceToNow, parseISO } from 'date-fns'
+import { SITE_URL } from 'lib/constants'
+import profilePic from 'public/assets/blog/authors/iammarkps.jpg'
 
 type MetadataProps = {
   params: { slug: string }

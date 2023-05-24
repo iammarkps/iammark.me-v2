@@ -1,6 +1,6 @@
+import { IBM_Plex_Sans_Thai, Inter } from 'next/font/google'
 import Link from 'next/link'
 import { Analytics } from '@vercel/analytics/react'
-import { Inter, IBM_Plex_Sans_Thai } from 'next/font/google'
 
 import 'styles/index.css'
 

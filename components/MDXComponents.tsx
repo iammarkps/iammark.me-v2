@@ -1,6 +1,6 @@
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
 const CustomLink = ({ ...props }) => {
   const href = props.href
