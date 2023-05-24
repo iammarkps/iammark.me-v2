@@ -1,7 +1,8 @@
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const CustomLink = props => {
+const CustomLink = ({ ...props }) => {
   const href = props.href
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'))
 
@@ -16,8 +17,8 @@ const CustomLink = props => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />
 }
 
-const CustomImage = props => {
-  return <Image alt={props.alt} {...props} />
+const CustomImage = ({ ...props }) => {
+  return <Image className={props.className} src={props.src} alt={props.alt} />
 }
 
 const MDXComponent = {
@@ -25,4 +26,12 @@ const MDXComponent = {
   a: CustomLink
 }
 
-export default MDXComponent
+type MdxProps = {
+  code: string
+}
+
+export const Mdx = ({ code }: MdxProps) => {
+  const MDXContent = useMDXComponent(code)
+
+  return <MDXContent components={MDXComponent} />
+}

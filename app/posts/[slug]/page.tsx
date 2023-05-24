@@ -1,9 +1,8 @@
-import { useMDXComponent } from 'next-contentlayer/hooks'
-import components from 'components/MDXComponents'
+import { Mdx } from 'components/MDXComponents'
 import { notFound } from 'next/navigation'
 
 import Image from 'next/image'
-import './katex.min.css'
+import './katex.css'
 
 import { parseISO, format, formatDistanceToNow } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
@@ -11,18 +10,31 @@ import { allPosts } from 'contentlayer/generated'
 import { SITE_URL } from 'lib/constants'
 
 import profilePic from 'public/assets/blog/authors/iammarkps.jpg'
+import { Metadata } from 'next'
 
-export const generateMetadata = ({ params }) => {
+type MetadataProps = {
+  params: { slug: string }
+}
+
+export const generateMetadata = async ({
+  params
+}: MetadataProps): Promise<Metadata> => {
   const post = allPosts.find(post => post._raw.flattenedPath === params.slug)
+
+  if (!post) {
+    return {}
+  }
 
   return {
     title: post.title,
     description: post.excerpt,
-    images: [
-      {
-        url: `${SITE_URL}${post.image}`
-      }
-    ]
+    openGraph: {
+      images: [
+        {
+          url: `${SITE_URL}${post.image}`
+        }
+      ]
+    }
   }
 }
 
@@ -32,13 +44,11 @@ export const generateStaticParams = async () =>
 const Post = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find(post => post._raw.flattenedPath === params.slug)
 
-  const MDXContent = useMDXComponent(post.body.code)
-
-  const date = parseISO(post.date)
-
   if (!post?.url) {
     return notFound()
   }
+
+  const date = parseISO(post.date)
 
   return (
     <div className="mx-auto flex w-full flex-col justify-center">
@@ -64,7 +74,7 @@ const Post = ({ params }: { params: { slug: string } }) => {
           </p>
         </div>
         <div className="prose mt-4 w-full max-w-none">
-          <MDXContent components={components} />
+          <Mdx code={post.body.code} />
         </div>
       </article>
     </div>

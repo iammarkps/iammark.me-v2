@@ -4,7 +4,7 @@ import { compareDesc, format, formatDistanceToNow, parseISO } from 'date-fns'
 
 import { allPosts } from 'contentlayer/generated'
 
-export default () => {
+export default function Index() {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   )
