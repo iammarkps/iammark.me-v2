@@ -18,7 +18,15 @@ const CustomLink = ({ ...props }) => {
 }
 
 const CustomImage = ({ ...props }) => {
-  return <Image className={props.className} src={props.src} alt={props.alt} />
+  return (
+    <Image
+      className={props.className}
+      src={props.src}
+      alt={props.alt}
+      width={props.width}
+      height={props.height}
+    />
+  )
 }
 
 const MDXComponent = {
