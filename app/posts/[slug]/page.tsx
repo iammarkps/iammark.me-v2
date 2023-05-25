@@ -7,7 +7,7 @@ import { format, formatDistanceToNow, parseISO } from 'date-fns'
 import './katex.css'
 
 import { SITE_URL } from '@/lib/constants'
-import { Mdx } from '@/components/MDXComponents'
+import { Mdx } from '@/components/mdx-components'
 import profilePic from '@/public/assets/blog/authors/iammarkps.jpg'
 
 type MetadataProps = {

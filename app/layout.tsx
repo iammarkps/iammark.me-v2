@@ -2,7 +2,10 @@ import { IBM_Plex_Sans_Thai, Inter } from 'next/font/google'
 import Link from 'next/link'
 import { Analytics } from '@vercel/analytics/react'
 
-import 'styles/index.css'
+import '@/styles/index.css'
+import '@/styles/global.css'
+
+import { TailwindIndicator } from '@/components/tailwind-indicator'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -27,9 +30,9 @@ export default function RootLayout({
       <body>
         <div>
           <div className="flex flex-col justify-center px-8">
-            <nav className="mx-auto flex w-full max-w-2xl flex-col items-center justify-between font-display">
+            <nav className="mx-auto flex h-24 w-full max-w-2xl flex-col items-center justify-between py-6 font-display">
               <div className="flex w-full">
-                <h2 className="mb-8 mt-8 text-xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
+                <h2 className="text-xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
                   <Link href="/" className="hover:underline">
                     IAMMARKPS
                   </Link>
@@ -40,6 +43,7 @@ export default function RootLayout({
           <main className="flex flex-col justify-center px-8">{children}</main>
         </div>
         <Analytics />
+        <TailwindIndicator />
       </body>
     </html>
   )

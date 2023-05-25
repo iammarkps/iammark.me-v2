@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@radix-ui/react-scroll-area": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.1",
     "@vercel/analytics": "^1.0.1",
     "class-variance-authority": "^0.6.0",
     "classnames": "^2.3.2",
@@ -8,6 +10,7 @@
     "contentlayer": "^0.3.2",
     "date-fns": "^2.30.0",
     "eslint-config-next": "^13.4.3",
+    "fuse.js": "^6.6.2",
     "lucide-react": "^0.221.0",
     "next": "^13.4.3",
     "next-contentlayer": "^0.3.2",
@@ -34,7 +37,7 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.0.0-beta.0",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/react": "^17.0.59",
+    "@types/react": "^18.2.7",
     "autoprefixer": "^10.4.14",
     "eslint-config-prettier": "^8.8.0",
     "husky": "^8.0.0",
