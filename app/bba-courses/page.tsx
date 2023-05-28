@@ -1,14 +1,7 @@
 import Fuse from 'fuse.js'
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { CourseCard } from '@/components/course-card'
 import { SearchCourses } from '@/components/search-courses'
 
 import BBA26Courses from '../../data/26.json'
@@ -21,10 +14,9 @@ const courses = Object.keys(BBA26Courses).map(key => {
   }
 })
 
-console.log(courses)
-
 const fuse = new Fuse(courses, {
-  keys: ['id', 'name', 'abbrev']
+  keys: ['id', 'name', 'abbrev'],
+  threshold: 0.25
 })
 
 const CoursesPage = ({
@@ -34,42 +26,27 @@ const CoursesPage = ({
   params: { slug: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }) => {
-  const search = searchParams.search as string
-
-  const result = fuse.search(search)
-
-  console.log(result)
+  const search =
+    typeof searchParams.search === 'string' ? searchParams.search : ''
 
   return (
-    <div className="mx-auto mb-16 grid h-[calc(100vh-6rem)] w-full lg:grid-cols-5 ">
-      <div className="col-span-2 h-[calc(100vh-6rem)] px-8">
+    <div className="mx-auto grid h-[calc(100vh-6rem)] w-full  lg:grid-cols-12">
+      <div className="col-span-1 h-full overflow-hidden px-8 lg:col-span-3">
         <h1 className="font-display">BBA26 All Courses</h1>
         <h1 className="mt-4 font-display">Search for Course(s)</h1>
 
         <SearchCourses />
-        <ScrollArea className="mt-8 h-full">
-          {fuse.search(search).map(course => {
-            return (
-              <Card key={course.item.abbrev} className="mt-4 w-full">
-                <CardHeader>
-                  <CardTitle>{course.item.name}</CardTitle>
-                  <CardDescription>
-                    {course.item.id} {course.item.abbrev}
-                  </CardDescription>
-                  <CardDescription>{course.item.credit}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>{course.item.description}</p>
-                </CardContent>
-                <CardFooter>
-                  <p>{course.item.raw_prereq}</p>
-                </CardFooter>
-              </Card>
-            )
-          })}
+        <ScrollArea className="h-full pt-8">
+          {search
+            ? fuse.search(search).map(course => {
+                return <CourseCard course={course.item} key={course.item.id} />
+              })
+            : courses.map(course => {
+                return <CourseCard course={course} key={course.id} />
+              })}
         </ScrollArea>
       </div>
-      <div className="col-span-2 h-[calc(100vh-6rem)] w-full lg:col-span-3 lg:border-l"></div>
+      <div className="col-span-3 h-full w-full lg:col-span-9 lg:border-l"></div>
     </div>
   )
 }

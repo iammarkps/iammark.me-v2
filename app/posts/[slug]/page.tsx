@@ -7,20 +7,7 @@ import { format, formatDistanceToNow, parseISO } from 'date-fns'
 import '@/styles/katex.css'
 
 import { SITE_URL } from '@/lib/constants'
-import {
-  KaTeXAMS,
-  KaTeXCaligraphic,
-  KaTeXFraktur,
-  KaTeXMain,
-  KaTeXMath,
-  KaTeXSansSerif,
-  KaTeXScript,
-  KaTeXSize1,
-  KaTeXSize2,
-  KaTeXSize3,
-  KaTeXSize4,
-  KaTeXTypewriter
-} from '@/lib/fonts'
+import { KaTeXFontVariable } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 import { Mdx } from '@/components/mdx-components'
 import profilePic from '@/public/assets/blog/authors/iammarkps.jpg'
@@ -67,18 +54,7 @@ const Post = ({ params }: { params: { slug: string } }) => {
     <div
       className={cn(
         'mx-auto flex w-full flex-col justify-center',
-        KaTeXAMS.variable,
-        KaTeXCaligraphic.variable,
-        KaTeXFraktur.variable,
-        KaTeXMain.variable,
-        KaTeXMath.variable,
-        KaTeXSansSerif.variable,
-        KaTeXScript.variable,
-        KaTeXSize1.variable,
-        KaTeXSize2.variable,
-        KaTeXSize3.variable,
-        KaTeXSize4.variable,
-        KaTeXTypewriter.variable
+        KaTeXFontVariable
       )}
     >
       <article className="mx-auto mb-32 flex w-full max-w-2xl flex-col items-start justify-center">

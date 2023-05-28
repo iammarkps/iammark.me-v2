@@ -1,6 +1,6 @@
 import BBA26Courses from '../data/26.json'
 
-interface Course {
+export interface Course {
   abbrev: string
   name: string
   credit: string
@@ -9,7 +9,7 @@ interface Course {
   prereq: number[]
 }
 
-interface CourseRecord {
+export interface CourseRecord {
   [key: string]: Course
 }
 

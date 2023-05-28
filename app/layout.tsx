@@ -1,26 +1,12 @@
-import { IBM_Plex_Sans_Thai, Inter } from 'next/font/google'
 import Link from 'next/link'
 import { Analytics } from '@vercel/analytics/react'
 
 import '@/styles/index.css'
 import '@/styles/global.css'
 
+import { IBMPlexSansThai, inter } from '@/lib/fonts'
+import { cn } from '@/lib/utils'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap'
-})
-
-const IBMPlexSansThai = IBM_Plex_Sans_Thai({
-  variable: '--font-ibm-plex-sans-thai',
-  subsets: ['thai', 'latin'],
-  display: 'swap',
-  weight: ['100', '200', '300', '400', '500', '600', '700']
-})
-
-console.log(inter)
 
 export default function RootLayout({
   children
@@ -28,9 +14,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="th" className={`${inter.variable} ${IBMPlexSansThai.variable}`}>
+    <html lang="th" className={cn(inter.variable, IBMPlexSansThai.variable)}>
       <body>
-        <div>
+        <div className="h-screen">
           <div className="flex flex-col justify-center px-8">
             <nav className="mx-auto flex h-24 w-full max-w-2xl flex-col items-center justify-between py-6 font-display">
               <div className="flex w-full">

@@ -1,4 +1,7 @@
+import { IBM_Plex_Sans_Thai, Inter } from 'next/font/google'
 import localFont from 'next/font/local'
+
+import { cn } from './utils'
 
 export const KaTeXAMS = localFont({
   variable: '--font-katex-ams',
@@ -140,4 +143,32 @@ export const KaTeXTypewriter = localFont({
   variable: '--font-katex-typewriter',
   src: '../fonts/KaTeX_Typewriter-Regular.woff2',
   display: 'swap'
+})
+
+export const KaTeXFontVariable = cn(
+  KaTeXAMS.variable,
+  KaTeXCaligraphic.variable,
+  KaTeXFraktur.variable,
+  KaTeXMain.variable,
+  KaTeXMath.variable,
+  KaTeXSansSerif.variable,
+  KaTeXScript.variable,
+  KaTeXSize1.variable,
+  KaTeXSize2.variable,
+  KaTeXSize3.variable,
+  KaTeXSize4.variable,
+  KaTeXTypewriter.variable
+)
+
+export const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap'
+})
+
+export const IBMPlexSansThai = IBM_Plex_Sans_Thai({
+  variable: '--font-ibm-plex-sans-thai',
+  subsets: ['thai', 'latin'],
+  display: 'swap',
+  weight: ['100', '200', '300', '400', '500', '600', '700']
 })
